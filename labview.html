@@ -12,9 +12,12 @@
     <script>
         $(document).ready(function(){
             $.ajax({
-            url: "TestProject/HelloWorld", 
+            url: "index.html", 
             success: function(){
                 alert("IT WORKED");
+            },
+            error: function(){
+                alert("fail");
             }
         });
         ("#ptitle").text("This is the "+name+" lab")
