@@ -30,10 +30,10 @@ function createTable(){
     $("#test").text(computers[0]);
     var myTable= "<table class=\"center\"><tr><th style='width: 100px; color: red; text-align: center'>Computer</th>";
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
-    for (var computer in computers) {
-        var compParts = computer.split(",");
-        myTable+=  "<tr><td>ID: "+compParts[0]+" </td>"
-        myTable+=  "<td>"+compParts[1]+"</td></tr>"
+    for (let i = 0; i < computers.length; i++) {
+        var compStats = computers[i].split(",");
+        myTable+=  "<tr><td>ID: "+compStats[0]+" </td>"
+        myTable+=  "<td>"+compStats[1]+"</td></tr>"      
     }
     myTable+="</table>";
     $("#Table").append(myTable);
