@@ -35,7 +35,9 @@ function createTable(computers){
         myTable+=  "<td>"+compStats[1]+"</td></tr>"      
     }
     myTable+="</table>";
-    $("#Table").append(myTable);
+    $("#Lab1").append(myTable);
+    
+    
 }
 
 function openTab(evt, labName){
@@ -52,7 +54,7 @@ function openTab(evt, labName){
     }
     
     document.getElementById(labName).style.display = "block";
-   
+    this.labName = labName;
     evt.currentTarget.className += " active";  
    
 }

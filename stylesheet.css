@@ -6,13 +6,13 @@
     border-radius: 25px;
 }
 .sidemenu{
-    width: 200px;
+    width: 10%;
     height: 100%;
     background-color: #eee;
     position: fixed;
 }
 .sidemenu button{
-    width: 200px;
+    width: 100%;
     background-color: #eee;
     color: black;
     display: block;
@@ -29,7 +29,9 @@
     color: white;
 }
 .tabcontent {
-    margin-left: 200px;
+    text-align: center; 
+    position: relative;
+    z-index: -1;
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
