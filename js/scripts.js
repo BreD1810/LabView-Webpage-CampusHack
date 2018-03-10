@@ -1,7 +1,7 @@
 var computers;
 var labName = "Demo";
 
-$(document).ready(function(){
+//$(document).ready(function(){
     $.ajax({
         type: "GET",
         url: "http://labview.me:8080/TestProject/HelloWorld", 
@@ -23,7 +23,7 @@ $(document).ready(function(){
         }
     });
 
-});
+//});
 
 function createTable(){
     $("#test").text(computers[0]);
