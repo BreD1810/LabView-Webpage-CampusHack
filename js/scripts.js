@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $.ajax({
         type: "GET",
-        url: "/TestProject/HelloWorld", 
+        url: "http://labview.me:8080/TestProject/HelloWorld", 
         success: function(data){
             alert("IT WORKED");
             $("#test").text(data);
