@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css" />
-    <script src="./scripts/table.js"></script>
-    <script src="./scripts/jquery.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/table.js"></script>
     <title>Lab View</title>
     <script>
         $(document).ready(function(){
-            var name=getLabName();
-            $("#ptitle").text("This is the "+name+" lab")    
-        })
+            $.ajax({
+            url: "TestProject/HelloWorld", 
+            success: function(){
+                alert("IT WORKED");
+            }
+        });
+        ("#ptitle").text("This is the "+name+" lab")
+        });
 
     </script>
 </head>
