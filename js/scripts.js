@@ -10,6 +10,7 @@ var labName = "Demo";
             computers = data.split("\n");
             console.log(data);
             $("#test").text(computers[1]);
+            createTable();
         }, 
         error: function(){
             alert("fail");
@@ -31,11 +32,11 @@ function createTable(){
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
     for (var computer in computers) {
         var compParts = computer.split(",");
-        myTable+=  "<tr><td>ID: "+computer+" </td></tr>"
-        //myTable+=  "<td>"+compParts[1]+"</td></tr>"
+        myTable+=  "<tr><td>ID: "+compParts[0]+" </td></tr>"
+        myTable+=  "<td>"+compParts[1]+"</td></tr>"
     }
     myTable+="</table>";
-    document.write(myTable);
+    document.getElementById("Table").appendChild(table);
 }
 
 function getLabName(){
