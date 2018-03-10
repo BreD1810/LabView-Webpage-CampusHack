@@ -9,6 +9,7 @@ $(document).ready(function(){
             alert("IT WORKED");
             computers = data.split("\n");
             console.log(data);
+            $("#test").text(computers[0]);
         }, 
         error: function(){
             alert("fail");
@@ -30,8 +31,8 @@ function createTable(){
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
     for (var computer in computers) {
         var compParts = computer.split(",");
-        myTable+=  "<tr><td>ID: "+compParts[0]+" </td>"
-        myTable+=  "<td>"+compParts[1]+"</td></tr>"
+        myTable+=  "<tr><td>ID: "+computer+" </td></tr>"
+        //myTable+=  "<td>"+compParts[1]+"</td></tr>"
     }
     myTable+="</table>";
     document.write(myTable);
