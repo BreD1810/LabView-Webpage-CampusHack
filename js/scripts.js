@@ -3,7 +3,7 @@ var labName = "Demo";
 $(document).ready(function(){
     $.ajax({
         type: "GET",
-        url: "http://labview.me:8080/labview/clientlist", 
+        url: "http://labview.me:8080/LabView/clientlist", 
         success: function(data){
             alert("IT WORKED");
             var computers = data.split("\n");
