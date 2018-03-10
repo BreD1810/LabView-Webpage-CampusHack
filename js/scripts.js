@@ -36,7 +36,7 @@ function createTable(){
         myTable+=  "<td>"+compParts[1]+"</td></tr>"
     }
     myTable+="</table>";
-    document.getElementById("Table").appendChild(table);
+    $("#Table").appendChild(table);
 }
 
 function getLabName(){
