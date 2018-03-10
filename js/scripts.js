@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $.ajax({
         type: "GET",
-        url: "text.txt", 
+        url: "/TestProject/HelloWorld", 
         success: function(data){
             alert("IT WORKED");
             $("#test").text(data);
