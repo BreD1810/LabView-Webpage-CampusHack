@@ -19,6 +19,10 @@ function createTable(){
     document.write(myTable);
 }
 
+function setComputers(comp){
+    this.comp = computers
+}
+
 function getLabName(){
     return labName;
 }
