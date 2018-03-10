@@ -26,7 +26,7 @@ $(document).ready(function(){
 });
 
 function createTable(){
-
+    $("#test").text(computers[1]);
     var myTable= "<table class=\"center\"><tr><th style='width: 100px; color: red; text-align: center'>Computer</th>";
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
     for (var computer in computers) {
