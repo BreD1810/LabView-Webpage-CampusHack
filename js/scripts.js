@@ -30,7 +30,7 @@ function createTable(){
     $("#test").text(computers[0]);
     var myTable= "<table class=\"center\"><tr><th style='width: 100px; color: red; text-align: center'>Computer</th>";
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
-    for (let i = 0; i < computers.length; i++) {
+    for (let i = 0; i < computers.length-1; i++) {
         var compStats = computers[i].split(",");
         myTable+=  "<tr><td>ID: "+compStats[0]+" </td>"
         myTable+=  "<td>"+compStats[1]+"</td></tr>"      
