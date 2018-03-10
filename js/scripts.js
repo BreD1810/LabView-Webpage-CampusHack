@@ -36,7 +36,7 @@ function createTable(){
         myTable+=  "<td>"+compParts[1]+"</td></tr>"
     }
     myTable+="</table>";
-    $("#Table").appendChild(table);
+    $("#Table").appendChild(myTable);
 }
 
 function getLabName(){
