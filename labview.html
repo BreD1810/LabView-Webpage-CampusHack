@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css" />
+    <script src="./scripts/table.js"></script>
+    <script src="./scripts/jquery.js"></script>
+    <title>Lab View</title>
+    <script>
+        $(document).ready(function(){
+            $("#ptitle").text("This is the demo lab")    
+        })
+
+    </script>
+</head>
+<body>
+    <div id="Menu" class="menu">
+        <h4>Menu</h4>
+        <a href="./index.html" target="_self">HOME</a> | 
+        <a href="./labview.html" target="_self">LabView</a>
+    </div>
+    <div id="Main" class="main">
+        <div id="Title" class="title">
+            <p id="ptitle"></p>
+        </div>
+        <div id="Table" class="table">
+            <script>createTable();</script>
+        </div>
+    </div>
+</body>
+</html>
