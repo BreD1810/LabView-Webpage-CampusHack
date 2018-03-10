@@ -1,10 +1,40 @@
 .menu {
     text-align: center;
-    background-color: green;
+    background-color: #4CAF50;
+    height: 10%;
+    padding: 10px;
+    border-radius: 25px;
 }
-.title{
-    text-align: center;
-    font-size: 20pt;
+.sidemenu{
+    width: 200px;
+    height: 100%;
+    background-color: #eee;
+    position: fixed;
+}
+.sidemenu button{
+    width: 200px;
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    border: none;
+}
+.sidemenu button:hover {
+    background-color: #ccc;
+}
+
+.sidemenu button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.tabcontent {
+    margin-left: 200px;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-left: none;
+    color: black;
 }
 td, th{
     border: 1px solid black;

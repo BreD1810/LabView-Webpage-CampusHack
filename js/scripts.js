@@ -1,16 +1,15 @@
-var computers;
 var labName = "Demo";
 
-//$(document).ready(function(){
+$(document).ready(function(){
     $.ajax({
         type: "GET",
         url: "http://labview.me:8080/labview/clientlist", 
         success: function(data){
             alert("IT WORKED");
-            computers = data.split("\n");
+            var computers = data.split("\n");
             console.log(data);
             $("#test").text(computers[1]);
-            createTable();
+            createTable(computers);
         }, 
         error: function(){
             alert("fail");
@@ -24,9 +23,9 @@ var labName = "Demo";
         }
     });
 
-//});
+});
 
-function createTable(){
+function createTable(computers){
     $("#test").text(computers[0]);
     var myTable= "<table class=\"center\"><tr><th style='width: 100px; color: red; text-align: center'>Computer</th>";
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
@@ -37,6 +36,25 @@ function createTable(){
     }
     myTable+="</table>";
     $("#Table").append(myTable);
+}
+
+function openTab(evt, labName){
+    var tablinks, tabcontent;
+    tablinks = document.getElementsByClassName("tablink");
+    tabcontent = document.getElementsByClassName("tabcontent");
+  
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+   
+    for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active","");         
+    }
+    
+    document.getElementById(labName).style.display = "block";
+   
+    evt.currentTarget.className += " active";  
+   
 }
 
 function getLabName(){
