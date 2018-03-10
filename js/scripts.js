@@ -12,7 +12,7 @@ $(document).ready(function(){
                 createTable(computers);
                 setTimeout(function(){ 
                     getTable();
-                }, 30000); 
+                }, 60000); 
             }, 
             error: function(){
                 alert("fail");
