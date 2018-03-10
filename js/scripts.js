@@ -7,7 +7,7 @@ $(document).ready(function(){
         url: "http://labview.me:8080/TestProject/HelloWorld", 
         success: function(data){
             alert("IT WORKED");
-            var computers = data.split("\r\n");
+            computers = data.split("\r\n");
         }, 
         error: function(){
             alert("fail");
