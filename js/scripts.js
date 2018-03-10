@@ -4,7 +4,7 @@ var labName = "Demo";
 //$(document).ready(function(){
     $.ajax({
         type: "GET",
-        url: "http://labview.me:8080/TestProject/HelloWorld", 
+        url: "http://labview.me:8080/labview/clientlist", 
         success: function(data){
             alert("IT WORKED");
             computers = data.split("\n");
