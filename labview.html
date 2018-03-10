@@ -11,8 +11,7 @@
     <title>Lab View</title>
     <script>
         $(document).ready(function(){
-           
-       
+        name = getLabName();
         ("#ptitle").text("This is the "+name+" lab")
         });
 
@@ -27,6 +26,9 @@
     <div id="Main" class="main">
         <div id="Title" class="title">
             <p id="ptitle"></p>
+        </div>
+        <div id="Body" class="body">
+            <p id="test">This is a test, I hope this works</p>
         </div>
         <div id="Table" class="table">
             <script>createTable();</script>
