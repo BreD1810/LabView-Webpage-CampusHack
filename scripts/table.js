@@ -15,7 +15,7 @@ xhr.onreadystatechange = function() {
        alert("Request received");
     }
 };
-xhr.open(Get,"TestProject/HelloWorld",true);
+xhr.open(Get,"http://labview.me:8080/TestProject/HelloWorld",true);
 xhr.send();
 
 function createTable(){
