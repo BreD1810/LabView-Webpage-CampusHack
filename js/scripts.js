@@ -32,8 +32,8 @@ function createTable(){
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
     for (var computer in computers) {
         var compParts = computer.split(",");
-        myTable+=  "<tr><td>ID: "+compParts[0].toString()+" </td>"
-        myTable+=  "<td>"+compParts[1].toString()+"</td></tr>"
+        myTable+=  "<tr><td>ID: "+compParts[0]+" </td>"
+        myTable+=  "<td>"+compParts[1]+"</td></tr>"
     }
     myTable+="</table>";
     $("#Table").append(myTable);
