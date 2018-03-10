@@ -1,32 +1,39 @@
 var labName = "Demo";
 
 $(document).ready(function(){
-    $.ajax({
-        type: "GET",
-        url: "http://labview.me:8080/LabView/clientlist", 
-        success: function(data){
-            alert("IT WORKED");
-            var computers = data.split("\n");
-            console.log(data);
-            $("#test").text(computers[1]);
-            createTable(computers);
-        }, 
-        error: function(){
-            alert("fail");
-            $("#test").text("It Failed");
-        }
-    });
-    
+    function getTable(){
+        $.ajax({
+            type: "GET",
+            url: "http://labview.me:8080/LabView/clientlist", 
+            success: function(data){
+                var computers = data.split("\n");
+                console.log(data);
+                $("#test").text(computers[1]);
+                createTable(computers);
+                setTimeout(function(){ 
+                    getTable();
+                }, 30000); 
+            }, 
+            error: function(){
+                alert("fail");
+            }
+        });
+      
+    }
+    getTable();
+
     $("#Table td").each(function(){
-        if($(this).text()=="OFF"){
+        if($(this).text()=="0"){
             $(this).css('background-color','#ff0000')
+        } else if($(this).text()=="1"){
+            $(this).css('background-color','#00ff00')
         }
     });
 
 });
 
 function createTable(computers){
-    $("#test").text(computers[0]);
+    $("#Lab1Table").html("");
     var myTable= "<table class=\"center\"><tr><th style='width: 100px; color: red; text-align: center'>Computer</th>";
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Status</th>";
     for (let i = 0; i < computers.length-1; i++) {
@@ -35,15 +42,15 @@ function createTable(computers){
         myTable+=  "<td>"+compStats[1]+"</td></tr>"      
     }
     myTable+="</table>";
-    $("#Lab1").append(myTable);
+    $("#Lab1Table").append(myTable);
     
     
 }
 
 function openTab(evt, labName){
     var tablinks, tabcontent;
-    tablinks = document.getElementsByClassName("tablink");
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tablinks = $(".tablink");
+    tabcontent =$(".tabcontent");
   
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
