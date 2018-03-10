@@ -8,7 +8,7 @@ $(document).ready(function(){
         success: function(data){
             alert("IT WORKED");
             computers = data.split("\n");
-            Console.log(data);
+            console.log(data);
         }, 
         error: function(){
             alert("fail");
