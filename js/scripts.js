@@ -1,42 +1,45 @@
 var labName = "";
-var computerIDs =new Array();;
-
+var computerIDs = new Array();
     function getTable(labNum){
         $.ajax({
             type: "GET",
-            data: {labNumber: labName},
+            data: {labNumber: labNum},
             url: "http://labview.me:8080/LabView/clientlist", 
             success: function(data){
                 var computers = data.split("\n");
                 console.log(data);           
-                createTable(computers);
-                setTimeout(function(){ 
-                    getTable();
-                }, 60000); 
+                createTable(computers, labNum);
+                alert(labName);
+                alert(labNum);
+                if(labNum === labName){
+                    alert("It WOrked");
+                    setTimeout(function(){
+                        getTable(labNum);
+                    }, 60000);
+                }
             }, 
             error: function(){
-                alert("fail");
+                alert("fail1");
                 setTimeout(function(){ 
                     getTable();
                 }, 15000); 
             }
-        });
-      
+        });   
     }
-    function getDetailedTable(urlString){
+    function getDetailedTable(){
         $.ajax({
             type: "GET",
             url: "http://labview.me:8080/LabView/detailedclientlist", 
             success: function(data){
                 var computers = data.split("\n");
                 console.log(data);
-                createDetailedTable(computers);
+                createDetailedTable(data);
                 setTimeout(function(){ 
                     getDetailedTable();
                 }, 60000); 
             }, 
             error: function(){
-                alert("fail");
+                alert("fail2");
                 setTimeout(function(){ 
                     getDetailedTable();
                 }, 15000); 
@@ -44,8 +47,8 @@ var computerIDs =new Array();;
         });
       
     }
-function createTable(computers){
-    $("#Lab1Table").html("");
+function createTable(computers, labNum){
+    $("#"+labNum+"Table").html("");
     var myTable= "<table class=\"center\"><tr><th style='width: 150px; color: red; text-align: center'>Computer</th>";
     myTable+= "<th style='width: 50px; color: red; text-align: center;'>Status</th>";
     for (let i = 0; i < computers.length-1; i++) {
@@ -60,10 +63,11 @@ function createTable(computers){
          
     }
     myTable+="</table>";
-    $("#Lab1Table").append(myTable);
+    $("#"+labNum+"Table").append(myTable);
 }
 function createDetailedTable(computers){
-    var count=0;
+    var count=0, currentID=0, distanceFromLastPC=0;
+    change=true;
     $("#Lab1Table").html("");
     var myTable= "<table class=\"center\"><tr><th style='width: 100px; color: red; text-align: center'>ID</th>";
     myTable+= "<th style='width: 100px; color: red; text-align: center;'>Name</th>";
@@ -72,9 +76,15 @@ function createDetailedTable(computers){
     myTable+= "<th style='width: 500px; color: red; text-align: center;'>Log</th>";
     for (let i = 0; i < computers.length-1; i++) {
         var compStats = computers[i].split(",");
-        if(compStats[1]!=null){
-            computerIDs[count] = compStats[0]
+        if(compStats[0]==currentID+1){
+            if(currentID>1){
+                myTable+="</td></tr>";
+            }
+            currentID++;
             count++;
+            distanceFromLastPC=0;
+
+            computerIDs[count] = compStats[0]
             myTable+="<tr><td>"+compStats[0]+" </td>";
             myTable+="<td>"+compStats[1]+"</td>"; 
             if(compStats[2] == "0"){
@@ -82,14 +92,21 @@ function createDetailedTable(computers){
             }else{
                 myTable+=  "<td style='background-color: green;'>"+compStats[2]+"</td>";
             }
-            myTable+="<td>"+compStats[3]+"</td>"; 
-            myTable+="<td><a href=\"http://labview.me:8080/LabView/logfile?name="+compStats[1]+"\">"+compStats[4]+"</a></td></tr>"; 
-        }      
+            myTable+="<td>"+compStats[3]+"</td><td>"; 
+                 
+        }else if(compStats[0]!=""){
+            
+            distanceFromLastPC++;
+            var log = compStats[0];
+            compStats = computers[i-distanceFromLastPC].split(",");
+            myTable+="<a href=\"http://labview.me:8080/LabView/logfile?name="+compStats[1]+"\">"+log+"</a><br>";         
+        }     
     }
     myTable+="</table>";
     $("#Lab1Table").append(myTable);
 }
 function openTab(evt, labName){
+    this.labName = labName;
     var tablinks, tabcontent;
     tablinks = $(".tablink");
     tabcontent =$(".tabcontent");
@@ -103,8 +120,6 @@ function openTab(evt, labName){
     }
     
     document.getElementById(labName).style.display = "block";
-    this.labName = labName;
-    localStorage.setItem("labName", labName);
     evt.currentTarget.className += " active";    
 }
 function addClient(){
@@ -123,9 +138,32 @@ function addClient(){
         }
     });
 }
-function setActiveTab(){
-   
-    var labName = localStorage.getItem("labName");
-    document.getElementById(labName).style.display = "block";
+
+function setActiveTab(){ 
+    document.getElementById("Lab1").style.display = "block";
+}
+
+function xmlExample(){
+    alert("HELLO");
+    var template="";
+    var fileLocation = "/xmlexample/example.xml";
+    $.ajax({
+        type: 'GET',
+        url: "/xmlexample/example.xml",
+        success: function(xml){
+            alert(xml);
+            var xmlDoc = $.parseXML(xml);
+            alert(xmlDoc);
+            $xml = $(xmlDoc);
+            alert(xmlDoc);
+            $xml.find('pc[name="BRADS-LAPTOP"] xLocation').each(function () {
+                alert($(this).text)
+            })
+        }
+    });
     
+    /*
+    alert(text);
+    xmlDoc = $.parseXML(text)
+    */
 }

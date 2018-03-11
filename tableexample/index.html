@@ -16,6 +16,7 @@ function getTable(){
         $.ajax({
             type: "GET",
             url: "http://labview.me:8080/LabView/clientlist",
+            data: {labNumber: "Lab1"},
             success: function(data){
                 var computers = data.split("\n");
                 console.log(data);

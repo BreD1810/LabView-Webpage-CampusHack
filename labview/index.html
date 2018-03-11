@@ -8,14 +8,7 @@
     <link rel="icon" href="/img/favicon.ico">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
-    <script>
-        $(document).ready(function(){
-            getTable();
-            setActiveTab();
-        });
-    </script>
     <title>Lab View</title>
-   
 </head>
 <body>
     <div id="Menu" class="menu">
@@ -26,11 +19,10 @@
     <div id="Main" class="main">
         <!-- Tab links -->
         <div id="SideMenu" class="sidemenu">
-            <button class="tablink" onclick="openTab(event, 'Home')">Home</button>
-            <button class="tablink" onclick="openTab(event, 'Lab1')">Lab 1</button>
-            <button class="tablink" onclick="openTab(event, 'Lab2')">Lab 2</button>
-            <button class="tablink" onclick="openTab(event, 'Lab3')">Lab 3</button>
-            <button class="tablink" onclick="openTab(event, 'Lab4')">Lab 4</button>
+            <button class="tablink" onclick="openTab(event, 'Lab1');getTable('Lab1')">Lab 1</button>
+            <button class="tablink" onclick="openTab(event, 'Lab2');getTable('Lab2')">Lab 2</button>
+            <button class="tablink" onclick="openTab(event, 'Lab3');getTable('Lab3')">Lab 3</button>
+            <button class="tablink" onclick="openTab(event, 'Lab4');getTable('Lab4')">Lab 4</button>
         </div>
         <!-- Tab Content -->
         <div id="Home" class="tabcontent">
@@ -49,12 +41,18 @@
         </div>
         <div id="Lab2" class="tabcontent">
             <h2>Lab2</h2>
+            <p>This is Lab 2</p>
+            <div id="Lab2Table"></div> 
         </div>
         <div id="Lab3" class="tabcontent">
             <h2>Lab3</h2>
+            <p>This is Lab 3</p>
+            <div id="Lab3Table"></div> 
         </div>
         <div id="Lab4" class="tabcontent">
             <h2>Lab4</h2>
+            <p>This is Lab 4</p>
+            <div id="Lab4Table"></div> 
         </div>
         <div id="Table" class="table"></div>
     </div>
