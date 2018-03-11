@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="/stylesheet.css" />
+    <link rel="icon" href="/img/favicon.ico">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
     <script>
         $(document).ready(function(){
-            getTable();
+            getDetailedTable();
         });
     </script>
-    <title>Document</title>
+    <title>Admin</title>
 </head>
 <body>
     <div id="Lab1Table"></div>
     <form>
-        Client ID: <input type="text" id="clientID"><br>
+        <!--Client ID: <input type="text" id="clientID"><br>-->
         Client Name: <input type="text" id="clientName"><br>
+        Lab Number: <input type="text" id="labNumber"><br>
         <button onclick="addClient()">Add</button>
     </form>
 </body>
