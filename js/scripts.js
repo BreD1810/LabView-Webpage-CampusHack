@@ -86,5 +86,5 @@ function setActiveTab(){
    
     var labName = localStorage.getItem("labName");
     document.getElementById(labName).style.display = "block";
-    localStorage.setItem("labName", "");
+    
 }
