@@ -6,7 +6,7 @@ This webpage is written in HTML, CSS and JavaScript. It communicates with the Ja
 ## Homepage
 [This](http://labview.me/) (if it is still live, and you're connecting using a University of Southampton VPN) is the homepage.
 
-![Homepage](https://i.imgur.com/pb4fFkH.png)
+![Homepage](https://i.imgur.com/84KKmNE.png)
 
 ## LabView
 [This](http://labview.me/labview) is the main page of the website. It shows the details about the machines that are live in the lab selected.
