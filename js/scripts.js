@@ -1,9 +1,10 @@
 var labName = "";
 var computerIDs =new Array();;
 
-    function getTable(){
+    function getTable(labNum){
         $.ajax({
             type: "GET",
+            data: {labNumber: labName},
             url: "http://labview.me:8080/LabView/clientlist", 
             success: function(data){
                 var computers = data.split("\n");

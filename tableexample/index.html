@@ -10,6 +10,38 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
     <title>Lab View</title>
+    <script>
+    
+function getTable(){
+        $.ajax({
+            type: "GET",
+            url: "http://labview.me:8080/LabView/clientlist",
+            success: function(data){
+                var computers = data.split("\n");
+                console.log(data);
+                updateVisuals(computers);
+                setTimeout(function(){
+                    getTable();
+                }, 60000);
+            },
+            error: function(){
+                alert("fail");
+            }
+        });
+
+    }
+function updateVisuals(computers){
+    for(let i = 0; i < computers.length-1; i++){
+        var compStats = computers[i].split(",");
+	if(compStats[1] == 1){
+	    document.getElementById(compStats[0]).style.backgroundColor = "green";
+	} else {
+	    document.getElementById(compStats[0]).style.backgroundColor = "red";
+	}
+    }
+}
+getTable();
+    </script>
 </head>
 
 <body>
@@ -29,41 +61,7 @@
                 </div>
 	</div>
     </div>
-<script>
 
-getTable();
-
-function getTable(){
-        $.ajax({
-            type: "GET",
-            url: "http://labview.me:8080/LabView/clientlist",
-            success: function(data){
-                var computers = data.split("\n");
-                console.log(data);
-                $("#test").text(computers[1]);
-                updateVisuals(computers);
-                setTimeout(function(){
-                    getTable();
-                }, 60000);
-            },
-            error: function(){
-                alert("fail");
-            }
-        });
-
-    }
-function updateVisuals(computers){
-
-    for(let i = 0; i < computers.length-1; i++){
-        var compStats = computers[i].split(",");
-	if(compStats[1] == 1){
-	    document.getElementById(compStats[0]).style.backgroundColor = "green";
-	} else {
-	    document.getElementById(compStats[0]).style.backgroundColor = "red";
-	}
-    }
-}
-</script>
 </body>
 
 </html>
