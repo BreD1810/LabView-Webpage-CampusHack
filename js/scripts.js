@@ -69,7 +69,7 @@ function addClient(){
     var clientID = document.getElementById("clientID").value;
     alert(clientID);
     var clientName = document.getElementById("clientName").value;
-    var packet = ""+ clientID + " " + clientName;
+    var packet = ""+ clientID + ", " + clientName;
     $.ajax({
         type: "POST",
         url: "http://labview.me:8080/LabView/addclient",

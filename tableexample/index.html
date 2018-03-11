@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheet.css" />
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/scripts.js"></script>
+    <title>Lab View</title>
+</head>
+
+<body>
+    <div id="Main" class="main">
+        <div style="border: solid 21px; width: 500px; height: 300px; display: grid; grid-template-columns: auto  auto; grid-gap: 50px;">
+		<div id="Sam" style="margin-left: 50px; margin-top: 25px; width: 100px; height: 100px; background-color: red;">
+			<p style="text-align: center;">Sam</p>
+		</div>
+		<div id="Joel" style="margin-top: 25px; width: 100px; height: 100px; background-color: red;">
+			<p style="text-align: center;">Joel</p>
+                </div>
+		<div id="Brad" style="margin-left: 50px; width: 100px; height: 100px; background-color: red;">
+			<p style="text-align: center;">Brad</p>
+                </div>
+		<div id="Ankur" style="width: 100px; height: 100px; background-color: red;">
+			<p style="text-align: center;">Ankur</p>
+                </div>
+	</div>
+    </div>
+<script>
+
+getTable();
+
+function getTable(){
+        $.ajax({
+            type: "GET",
+            url: "http://labview.me:8080/LabView/clientlist",
+            success: function(data){
+                var computers = data.split("\n");
+                console.log(data);
+                $("#test").text(computers[1]);
+                updateVisuals(computers);
+                setTimeout(function(){
+                    getTable();
+                }, 60000);
+            },
+            error: function(){
+                alert("fail");
+            }
+        });
+
+    }
+function updateVisuals(computers){
+
+    for(let i = 0; i < computers.length-1; i++){
+        var compStats = computers[i].split(",");
+	if(compStats[1] == 1){
+	    document.getElementById(compStats[0]).style.backgroundColor = "green";
+	} else {
+	    document.getElementById(compStats[0]).style.backgroundColor = "red";
+	}
+    }
+}
+</script>
+</body>
+
+</html>
