@@ -1,52 +1,66 @@
-.menu {
-    text-align: center;
-    background-color: #4CAF50;
-    height: 10%;
-    padding: 10px;
-    border-radius: 25px;
-}
-.sidemenu{
-    width: 10%;
-    height: 100%;
-    background-color: #eee;
-    position: fixed;
-}
-.sidemenu button{
-    width: 100%;
-    background-color: #eee;
-    color: black;
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-    border: none;
-}
-.sidemenu button:hover {
-    background-color: #ccc;
-}
-
-.sidemenu button.active {
-    background-color: #4CAF50;
-    color: white;
-}
-.tabcontent {
-    text-align: center; 
+html, body {
     position: relative;
-    z-index: -1;
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-left: none;
-    color: black;
-}
-td, th{
-    border: 1px solid black;
-}
-table.center{
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-h4 {
-    padding: 0px;
-    margin: 0px;
-}
+     font-family: Trebuchet MS, Verdana, MS Sans Serif;
+  }
+  .menu {
+     text-align: center;
+     background-color: #4CAF50;
+     top: 0;
+     padding-bottom: 10px;
+     padding-top: 5px;
+     border-left: 500px;
+     
+  }
+  .sidemenu{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 10%;
+     height: 100%;
+     background-color: #eee;
+     float: left;
+  }
+  .sidemenu button{
+     width: 100%;
+     background-color: #eee;
+     color: black;
+     display: block;
+     padding: 12px;
+     text-decoration: none;
+     border: none;
+  }
+  .sidemenu button:hover {
+     background-color: #ccc;
+  }
+  .sidemenu button.active {
+     background-color: #4CAF50;
+     color: white;
+  }
+  .tabcontent {
+     text-align: center;
+     position: relative;
+     z-index: -1;
+     display: none;
+     padding: 6px 12px;
+     border: 1px solid #ccc;
+     border-left: none;
+     color: black;
+  }
+  td, th{
+     border: 1px solid black;
+  }
+  table.center{
+     margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+  }
+  h4 {
+     padding: 0px;
+     margin: 0px;
+  }
+  .layout{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 40%
+  }
